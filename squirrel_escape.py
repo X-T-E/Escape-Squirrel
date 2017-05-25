@@ -21,7 +21,7 @@ nabbedPosX, nabbedPosY = 0, 0
 nabbed =  None
 
 hey = pygame.mixer.Sound("resources/audio/hey.wav")
-music = pygame.mixer.Sound("resources/audio/music.wav")
+pygame.mixer.music.load("resources/audio/music.wav")
 
 enemyNorth = pygame.image.load("resources/images/enemynorth.png")
 enemyEast = pygame.image.load("resources/images/enemyeast.png")
@@ -112,7 +112,7 @@ pygame.display.flip()
 time.sleep(3)
 
 pygame.event.clear()
-music.play()
+pygame.mixer.music.play(-1)
 while gameIsRunning:
 
     screen.fill((0,0,0))
@@ -136,7 +136,7 @@ while gameIsRunning:
         nabbedPosY = 522 - 50
         nabbedPosX = 580
         nabbed = pygame.image.load("resources/images/nabbedright.png")
-        music.stop()
+        pygame.mixer.music.stop()
         hey.play()
     elif playerY == 318 and enemyTwoDirection == "2":
         result = 0
@@ -144,7 +144,7 @@ while gameIsRunning:
         nabbedPosY = 322 - 50
         nabbedPosX = 34
         nabbed = pygame.image.load("resources/images/nabbedleft.png")
-        music.stop()
+        pygame.mixer.music.stop()
         hey.play()
     elif playerY == 118 and enemyThreeDirection == "2":
         result = 0
@@ -152,7 +152,7 @@ while gameIsRunning:
         nabbedPosY = 122 - 50
         nabbedPosX = 34
         nabbed = pygame.image.load("resources/images/nabbedleft.png")
-        music.stop()
+        pygame.mixer.music.stop()
         hey.play()
     elif playerY == 118 and enemyFourDirection == "4":
         result = 0
@@ -160,9 +160,10 @@ while gameIsRunning:
         nabbedPosY = 122 - 50
         nabbedPosX = 580
         nabbed = pygame.image.load("resources/images/nabbedright.png")
-        music.stop()
+        pygame.mixer.music.stop()
         hey.play()
     elif playerY == 18:
+        pygame.mixer.music.stop()
         result = 1
         gameIsRunning = 0
 
